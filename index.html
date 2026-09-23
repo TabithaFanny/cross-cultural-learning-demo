@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrossCultural 全球文化智能学习</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="side-nav" aria-label="产品导航">
+        <div class="brand-lockup">
+          <div class="brand-mark">CC</div>
+          <div>
+            <strong>CrossCultural</strong>
+            <span>全球文化智能</span>
+          </div>
+        </div>
+        <nav>
+          <button class="nav-item active" data-target="country">国家选择</button>
+          <button class="nav-item" data-target="map">文化地图</button>
+          <button class="nav-item" data-target="observations">企业实战观察</button>
+          <button class="nav-item" data-target="cards">知识卡片</button>
+          <button class="nav-item" data-target="scenario">场景训练</button>
+          <button class="nav-item" data-target="studio">学习内容</button>
+          <button class="nav-item" data-target="dashboard">企业看板</button>
+        </nav>
+        <div class="language-switch" aria-label="审阅语言切换">
+          <span class="language-switch-label">审阅语言</span>
+          <div class="language-toggle">
+            <button class="active" type="button" data-language="zh">中文</button>
+            <button type="button" data-language="en">English</button>
+          </div>
+        </div>
+        <div class="nav-note">
+          <span>当前学习主题</span>
+          <strong>中国企业 → 越南市场</strong>
+        </div>
+      </aside>
+
+      <main>
+        <section id="country" class="screen hero-screen">
+          <div class="hero-copy">
+            <p class="eyebrow">AI 驱动的国家文化知识与跨文化能力建设平台</p>
+            <h1>
+              <span>CrossCultural</span>
+              <span>全球文化</span>
+              <span>智能系统</span>
+            </h1>
+            <p>
+              帮助企业员工快速理解目标国家，识别文化差异，提前演练真实工作场景，在出海前建立跨文化协作能力。
+            </p>
+          </div>
+          <div class="country-picker">
+            <div class="section-heading">
+              <p>从目标市场开始</p>
+              <h2>你正在进入哪个国家？</h2>
+            </div>
+            <div class="country-grid">
+              <button class="country-card selected" data-country="brazil" data-target="map">
+                <span class="flag">🇧🇷</span>
+                <strong>巴西</strong>
+                <span class="country-card-action">进入学习</span>
+              </button>
+              <button class="country-card" data-country="vietnam" data-target="map">
+                <span class="flag">🇻🇳</span>
+                <strong>越南</strong>
+                <span class="country-card-action">进入学习</span>
+              </button>
+              <button class="country-card muted" type="button">
+                <span class="flag">🇯🇵</span>
+                <strong>日本</strong>
+                <span class="country-card-action muted">暂未开放</span>
+              </button>
+              <button class="country-card muted" type="button">
+                <span class="flag">🇮🇩</span>
+                <strong>印度尼西亚</strong>
+                <span class="country-card-action muted">暂未开放</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="map" class="screen">
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">国家文化知识地图</p>
+              <h2 id="mapTitle">越南文化智能地图</h2>
+            </div>
+            <button class="primary-action" data-target="cards">探索知识卡片</button>
+          </div>
+
+          <div class="map-layout">
+            <div class="brazil-visual" id="countryVisual" aria-label="越南文化地图视觉">
+              <div class="map-node node-main">
+                <strong id="visualMainCountry">越南</strong>
+                <span>文化智能</span>
+              </div>
+              <div class="map-node node-a" id="visualNodeA">Ho Chi Minh City</div>
+              <div class="map-node node-b" id="visualNodeB">Hanoi</div>
+              <div class="map-node node-c" id="visualNodeC">Da Nang</div>
+              <div class="map-route route-1"></div>
+              <div class="map-route route-2"></div>
+              <div class="map-route route-3"></div>
+            </div>
+            <div class="module-grid" id="moduleGrid"></div>
+          </div>
+        </section>
+
+        <section id="observations" class="screen">
+          <div class="topbar">
+            <div>
+              <p class="eyebrow" id="observationEyebrow">国家专属专题</p>
+              <h2 id="observationTitle">企业实战观察</h2>
+            </div>
+            <button class="primary-action" data-target="scenario">进入场景训练</button>
+          </div>
+          <div id="enterpriseObservationBoard"></div>
+        </section>
+
+        <section id="cards" class="screen">
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">漫画图文小知识</p>
+              <h2 id="cardTitle">面向中国 → 越南团队的碎片化学习</h2>
+            </div>
+            <div class="pill-switch" role="tablist" aria-label="知识卡片筛选">
+              <button class="active" data-filter="商务">商务</button>
+              <button data-filter="团队">团队</button>
+              <button data-filter="生活">生活</button>
+            </div>
+          </div>
+          <div class="learning-grid" id="learningGrid"></div>
+        </section>
+
+        <section id="scenario" class="screen">
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">真实工作场景训练</p>
+              <h2 id="scenarioTitle">第一次和越南团队开项目会</h2>
+            </div>
+            <button class="secondary-action" id="resetScenario">重置</button>
+          </div>
+
+          <div class="scenario-layout">
+            <div class="simulation-panel">
+              <div class="scene-header">
+                <div>
+                  <strong>AI 情景陪练</strong>
+                  <span id="scenarioPersona">越南团队负责人：重视礼貌、层级清晰、反馈较含蓄</span>
+                </div>
+                <span class="status-dot">进行中</span>
+              </div>
+              <div class="chat-window" id="chatWindow"></div>
+              <div class="choice-row" id="choiceRow"></div>
+              <div class="ai-response-lab">
+                <div class="ai-lab-header">
+                  <div>
+                    <strong>自由回复训练</strong>
+                    <span>输入或语音讲述你的回复 / 真实事件，AI 给出多维分析</span>
+                  </div>
+                  <span class="ai-mode-pill">AI Coach</span>
+                </div>
+                <textarea id="scenarioFreeInput" rows="4" placeholder="你会怎么回复越南同事？也可以描述一个真实事件，例如：供应商延期、会议沉默、给员工反馈、总部催进度……"></textarea>
+                <div class="ai-lab-actions">
+                  <button class="secondary-action" id="voiceScenarioInput" type="button">语音录入</button>
+                  <button class="primary-action" id="analyzeScenarioInput" type="button">AI 分析回复</button>
+                </div>
+                <div class="voice-demo-panel" id="voiceDemoPanel" aria-hidden="true">
+                  <div class="voice-orb-wrap">
+                    <button class="voice-orb" id="voiceOrb" type="button" aria-label="开始语音录入演示">
+                      <span></span>
+                    </button>
+                    <div class="voice-wave" aria-hidden="true">
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                    </div>
+                  </div>
+                  <div class="voice-demo-copy">
+                    <strong id="voiceStatus">点击语音球，开始讲述真实跨文化事件</strong>
+                    <p id="voiceTranscript">示例：越南同事说供应商可能延期，但会上没有明确反对项目计划。</p>
+                    <div class="voice-demo-actions">
+                      <button class="secondary-action" id="voiceDemoClose" type="button">收起</button>
+                      <button class="primary-action" id="voiceUseTranscript" type="button">带入并分析</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="ai-analysis-panel" id="aiAnalysisPanel" aria-live="polite">
+                  <p>选择上方分支，或直接输入/语音讲述你的处理方式，AI 会从语气、风险确认、行动清晰度、跨文化适配度四个维度给出反馈。</p>
+                </div>
+              </div>
+            </div>
+            <aside class="coach-panel">
+              <p class="eyebrow">文化教练</p>
+              <h3>训练能力</h3>
+              <ul id="coachSkills">
+                <li>关系优先的会议开场</li>
+                <li>在任务压力前建立信任</li>
+                <li>识别含蓄风险信号并追问</li>
+              </ul>
+              <div class="score-card">
+                <span>跨文化准备度</span>
+                <strong id="readinessScore">42%</strong>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="studio" class="screen">
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">AI 内容生产后台</p>
+              <h2>生成新的国家文化知识包</h2>
+            </div>
+            <button class="primary-action" id="generateContent">运行 AI 智能体</button>
+          </div>
+
+          <div class="studio-layout">
+            <div class="input-panel">
+              <label>
+                国家
+                <input id="countryInput" value="越南" />
+              </label>
+              <label>
+                主题
+                <select id="topicInput">
+                  <option>商务沟通</option>
+                  <option>工作反馈</option>
+                  <option>管理方式</option>
+                  <option>生活适应</option>
+                </select>
+              </label>
+              <label>
+                AI 生成类型
+                <select>
+                  <option>知识框架 + 卡片 + 测试题</option>
+                  <option>场景训练脚本</option>
+                  <option>漫画图片提示词</option>
+                </select>
+              </label>
+              <div class="review-actions">
+                <button class="secondary-action" data-studio-action="review">标记已学习</button>
+                <button class="primary-action" data-studio-action="publish">完成学习</button>
+              </div>
+            </div>
+            <div class="agent-grid" id="agentGrid"></div>
+            <div class="output-panel">
+              <div class="scene-header">
+                <strong>生成学习建议</strong>
+                <span id="apiStatus">学习内容已就绪</span>
+              </div>
+              <pre id="studioOutput"></pre>
+            </div>
+            <div class="validation-panel" id="validationPanel">
+              <div class="scene-header">
+                <div>
+                  <strong>内容依据</strong>
+                  <span>基于公开资料、真实案例与企业场景整理</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="dashboard" class="screen">
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">企业端看板</p>
+              <h2 id="dashboardTitle">中国企业 → 越南出海项目</h2>
+            </div>
+            <span class="participant-count">内容规模 · 6 个模块 / 100 条洞察 / 200 道题</span>
+          </div>
+          <div class="dashboard-grid">
+            <div class="progress-card" data-progress-card="knowledge">
+              <span>国家基础认知</span>
+              <strong data-progress-value="knowledge">80%</strong>
+              <div class="bar"><i data-progress-bar="knowledge" style="width: 80%"></i></div>
+            </div>
+            <div class="progress-card" data-progress-card="culture">
+              <span>文化差异理解</span>
+              <strong data-progress-value="culture">65%</strong>
+              <div class="bar"><i data-progress-bar="culture" style="width: 65%"></i></div>
+            </div>
+            <div class="progress-card" data-progress-card="scenario">
+              <span>场景训练完成度</span>
+              <strong data-progress-value="scenario">40%</strong>
+              <div class="bar"><i data-progress-bar="scenario" style="width: 40%"></i></div>
+            </div>
+            <div class="insight-panel" id="insightPanel">
+              <h3>本次学习沉淀</h3>
+              <div class="insight-list" id="insightList"></div>
+            </div>
+            <div class="business-action-panel" id="businessActionPanel">
+              <h3>企业行动建议</h3>
+              <div class="business-action-grid" id="businessActionGrid"></div>
+            </div>
+            <div class="risk-panel">
+              <h3>主要文化风险</h3>
+              <div class="risk-list">
+                <span>沟通方式差异</span>
+                <span>管理预期差异</span>
+              </div>
+            </div>
+            <div class="recommend-panel">
+              <h3>建议培训方向</h3>
+              <div class="recommend-grid">
+                <button>跨文化沟通</button>
+                <button>越南职场文化</button>
+                <button>信任型领导力</button>
+              </div>
+            </div>
+            <div class="capability-panel" id="capabilityPanel">
+              <h3>能力评估画像</h3>
+              <div class="capability-list">
+                <article>
+                  <div>
+                    <strong>跨文化沟通</strong>
+                    <span>需要更多真实场景训练</span>
+                  </div>
+                  <em>68%</em>
+                  <div class="bar"><i style="width: 68%"></i></div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="detail-overlay" id="detailOverlay" aria-hidden="true">
+      <article class="detail-drawer" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <button class="detail-close" id="detailClose" aria-label="关闭详情">×</button>
+        <div id="detailContent"></div>
+      </article>
+    </div>
+
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
